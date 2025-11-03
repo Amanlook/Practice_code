@@ -70,7 +70,18 @@ class LinkedList:
             
         self.head = head
 
-        
+    def reverseOfLinkedList(self):
+
+        curr = self.head
+        prev = None
+
+        while curr:
+            temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
+        self.head = prev
+
             
             
 
@@ -85,8 +96,9 @@ linked_list.append(5)
 
 linked_list.print_ll()
 print("-----------------------")
-print(linked_list.middleOfLinkedList())
-print("-----------------------")
-linked_list.modifiedList([1,2,3])
+# print(linked_list.middleOfLinkedList())
+linked_list.reverseOfLinkedList()
+# print("-----------------------")
+# linked_list.modifiedList([1,2,3])
 print("-----------------------")
 linked_list.print_ll()
