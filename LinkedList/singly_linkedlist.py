@@ -30,9 +30,26 @@ class LinkedList:
     def print_ll(self):
 
         node = self.head
+        response_list = []
         while node:
-            print(node.value)
+            response_list.append(node.value)
             node = node.next
+        # return response_list
+        print(response_list)
+
+    def middleOfLinkedList(self):
+
+        slowptr = self.head
+        fastptr = self.head
+
+        while fastptr and fastptr.next:
+            
+            fastptr = fastptr.next.next
+            slowptr = slowptr.next
+
+        return slowptr.value
+
+
 
     def modifiedList(self, nums: List[int]):
         head = self.head
@@ -51,8 +68,7 @@ class LinkedList:
             else:
                 curr = curr.next
             
-
-        return head
+        self.head = head
 
         
             
@@ -66,7 +82,10 @@ linked_list.append(3)
 linked_list.append(4)
 linked_list.append(5)
 
+
 linked_list.print_ll()
+print("-----------------------")
+print(linked_list.middleOfLinkedList())
 print("-----------------------")
 linked_list.modifiedList([1,2,3])
 print("-----------------------")
